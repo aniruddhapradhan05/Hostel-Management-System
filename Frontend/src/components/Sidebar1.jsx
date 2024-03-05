@@ -89,33 +89,36 @@ export default function({children}){
     }
 
     return (
-        <div className="main-container ">
-            <motion.div animate={{width: isOpen?"220px":"45px"}}
-            className=" bg-gray-700 ">
+    <>
+<div className="md:hidden ">
+    <motion.div animate={{width: isOpen?"220px":"45px"}}
+        className=" bg-gray-700 ">
 
-<div className="flex align-center justify-between">
-        {isOpen && <h1 className=" whitespace-nowrap text-white font-bold p-1.5">H M S</h1>}
+        <div className="flex align-center justify-between">
+            {isOpen && <h1 className=" whitespace-nowrap
+             text-white font-bold p-1.5">H M S</h1>}
         
-        <div className=" text-white p-1.5 text-2xl hover:cursor-pointer">
+            <div className=" text-white p-1.5 text-2xl hover:cursor-pointer">
             <FaBars onClick={toggle}/>
+            </div>
         </div>
-</div>
-<div className="flex align-center mt-2 items-center ">
-    <div className="text-white text-2xl px-2 py-5 font-bold hover:bg-slate-600 hover:cursor-pointer">
-        <BiSearch/>
-    </div>
-    <AnimatePresence>
-    {isOpen && (
-        <motion.input className=" h-8 border-black border-2"
-            initial="hidden"
-            animate="show"
-            exit="hidden"
-            variants={inputAnimation} 
-            placeholder="search ..."
-        />
-    )}
-    </AnimatePresence>
-</div>
+        <div className="flex align-center mt-2 items-center ">
+            <div className="text-white text-2xl px-2 py-5 
+                font-bold hover:bg-slate-600 hover:cursor-pointer">
+                    <BiSearch/>
+            </div>
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.input className=" h-8 border-black border-2"
+                        initial="hidden"
+                        animate="show"
+                        exit="hidden"
+                        variants={inputAnimation} 
+                        placeholder="search ..."
+                    />
+                )}
+            </AnimatePresence>
+        </div>
 
         <section>
             {routes.map((route)=>(
@@ -146,5 +149,32 @@ export default function({children}){
 
             </motion.div>
         </div>
+
+<div className="hidden md:inline-block w-full bg-gray-700 h-14">
+    <div className="flex w-full">
+    <section className="flex h-14 justify-evenly w-4/5">
+        {routes.map((route)=>(
+            <NavLink className="text-white cursor-pointer 
+            hover:bg-slate-600 hover:border w-full h-full text-center flex
+             items-center justify-center
+            " to={route.path} key={route.name}>
+                {route.name}
+            </NavLink>
+            
+        ))}
+    </section>
+    <div className="flex w-1/5 ">
+            <div className="text-white flex justify-center items-center m-2">
+                    <input className=" rounded-sm"  type="text" />    
+            </div>
+            <div className="w-full flex justify-center items-center 
+            hover:border text-white">
+                <BiSearch/>
+            </div>
+        </div>
+    </div>
+    
+</div>
+    </>
     )
 }

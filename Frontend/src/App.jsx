@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Sidebar1>
+        <Sidebar1/>
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/student-detail" element={<StudentDetail/>}/>
@@ -21,7 +21,7 @@ function App() {
             <Route path="/sign-in" element={<SignIn/>}/>
             <Route path="*" element={<> Not Found</>}/>
           </Routes>
-        </Sidebar1>        
+        {/* </Sidebar1>         */}
       </BrowserRouter>
     </>
   )
