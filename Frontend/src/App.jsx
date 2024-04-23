@@ -7,6 +7,7 @@ import StudentDetail from "./pages/StudentDetail"
 import SignUp from "./pages/SignUp"
 import SignIn from "./pages/SignIn"
 import Sidebar1 from "./components/Sidebar1"
+import LogoutPage from "./pages/Logout"
 function App() {
   return (
     <>
@@ -19,9 +20,9 @@ function App() {
             <Route path="/delete-student" element={<DeleteStudent/>}/>
             <Route path="/sign-up" element={<SignUp/>}/>
             <Route path="/sign-in" element={<SignIn/>}/>
+            <Route path="/logout" element={<LogoutPage/>}/>
             <Route path="*" element={<> Not Found</>}/>
-          </Routes>
-        {/* </Sidebar1>         */}
+          </Routes>    
       </BrowserRouter>
     </>
   )

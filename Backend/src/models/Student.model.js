@@ -1,53 +1,37 @@
-import mongoose from "mongoose";
+import mongoose, {Schema} from "mongoose";
 
-const studentSchema = mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: true,
+const StudentSchema = new Schema({
+    fname: {
+        type: String,
+        required: true
     },
-    address: {
-      type: String,
-      required: true,
+    lname: {
+        type: String,
+        required: true
     },
-    category: {
-      type: String,
-      required: true,
+    phone: {
+        type: String,
+        required: true
     },
-    city: {
-      type: String,
-      required: true,
+    email: {
+        type: String,
+        required: true
     },
-    contact: {
-      type: Number,
-      required: true,
-    },
-    fatherContact: {
-      type: Number,
-      required: true,
-    },
-    image: {
-      type: String,
-      required: true,
-    },
-    roomNo: {
-      type: String,
-      required: true,
-    },
-    blockNo: {
-      type: String,
-      required: true,
-    },
-    status: {
-      type: String,
-      required: true,
-    },
-  },
-  {
-    timestamps: true,
-  }
-);
 
-const Student = mongoose.model("Student", studentSchema);
-
-export default Student;
+    hostel:{
+        type: Number,
+        required: true
+    },
+    room:{
+        type: Number,
+        required: true
+    },
+    admin:{
+        type: Schema.Types.ObjectId,
+        ref : "Admin"
+    }
+},
+{
+    timestamps:true
+})
+export const Student = mongoose.model("Student", StudentSchema);

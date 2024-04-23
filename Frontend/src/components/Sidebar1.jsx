@@ -41,8 +41,8 @@ const routes = [
         icon: <FaCashRegister />,
     },
     {
-        path:"/setting",
-        name: "Setting",
+        path:"/logout",
+        name: "Logout",
         icon : <IoSettingsOutline />
     }
 ]
@@ -90,7 +90,7 @@ export default function({children}){
 
     return (
     <>
-<div className="md:hidden ">
+<div className="md:hidden fixed ">
     <motion.div animate={{width: isOpen?"220px":"45px"}}
         className=" bg-gray-700 ">
 
