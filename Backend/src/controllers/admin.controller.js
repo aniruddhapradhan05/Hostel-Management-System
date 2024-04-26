@@ -169,4 +169,15 @@ const deleteStudent = asyncHandler(async (req, res) => {
   }
 });
 
-export { addAdmin, loginAdmin, logoutAdmin, addStudent, deleteStudent };
+const getDetails = asyncHandler(async (req, res) => {
+  try {
+    const adminId = req.admin._id;
+    const students = await Student.find({ admin: adminId });
+
+    return res.status(200).json(new ApiResponse(200, students, "Students retrieved successfully"));
+  } catch (error) {
+    throw new ApiError(500, "Internal Server Error");
+  }
+});
+
+export { addAdmin, loginAdmin, logoutAdmin, addStudent, deleteStudent, getDetails };
